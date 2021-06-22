@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container mt-4">
+  <form method="post">
+    <div class="mb-3">
+      <input id="changer_b" name="changer_b" type="hidden" value="V" />
+      <label for="text_url" class="form-label">Video URL</label>
+      <input type="text" class="form-control" id="text_url" name="url" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+
+  {% if is_search %}
+  <div class="card mt-5" style="width: 50vw">
+    <img src="{{image}}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{title_song}}</h5>
+      <form method="post">
+        <input
+          id="text_url"
+          name="url"
+          type="hidden"
+          value="{{url_load}}"
+        />
+        <input id="changer_b" name="changer_b" type="hidden" value="F" />
+        <button type="submit" class="btn btn-primary">Download</button>
+      </form>
+    </div>
+  </div>
+  {% endif %} 
+  
+  
+  {% if is_download  %}
+    <h1>Descargado</h1>
+  {% endif %}
+  
+  
+  {% endblock %}
+</div>
